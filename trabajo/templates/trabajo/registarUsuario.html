@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda de Ropa</title>
+<link rel="stylesheet" href="{% static 'css/stylec.css' %}">
+<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+    <header>
+        <div  class="{{ clases.0 }}">
+          <h1><a href="index.html">Tienda Ropa</a></h1>
+            <nav>
+              <ul>
+                  <a href="{% url 'producto2' %}">Niños</a>
+                  <a href="{% url 'producto3' %}">Hombre</a>
+                  <a href="{% url 'producto4' %}">Mujer</a>
+                  <a href="Contacto.html">Contacto</a>
+                  <a href="{% url 'registro' %}">Registro</a>
+                  <a href="comentarios.html">Comentarios</a>
+                  <div class="{{ clases.1 }} {{ clases.2 }}"></div>
+              </ul>
+            </nav>
+              <div class="{{ clases.3 }}" src="{% static 'images/cart.png' %}" >
+                    <img src="{% static 'images/cart.png' %}" alt="Carrito de compras" />
+                    <span id="contador-productos">0</span>
+              </div>
+              <div class="{{ clases.4 }} {{ clases.5 }}">
+                    <div class="{{ clases.6 }} {{ clases.26 }}">
+                      <div class="{{ clases.7 }}">
+                        <div class="{{ clases.8 }}">
+                          <span class="{{ clases.9 }}">1</span>
+                          <p class="{{ clases.10 }}">Zapatos Nike</p>
+                          <span class="{{ clases.11 }}">$80</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="{{ clases.12 }} {{ clases.26 }}">
+                      <h3>Total:</h3>
+                      <span class="{{ clases.13 }}">span</span>
+                    </div>
+                    <p class="{{ clases.14 }}">El carrito está vacío</p>
+              </div>
+        </div>
+    </header>
+    <main class="{{ clases.27 }}">
+        <form class="{{ clases.28 }}">
+            <fieldset>
+                <h3>Registro de usuario</h3>
+                <div class="{{ clases.29 }}">
+                    <div class="{{ clases.30 }}">
+                        <label class="{{clases.34}}" for="rut">Rut</label>
+                        <input type="text" name="rut" id="rut" placeholder="12345678-0">
+                    </div>
+                    <div class="{{ clases.30 }}">
+                        <label class="{{clases.34}}" for="nombre">Nombre</label>
+                        <input class="input-text" type="text" name="nombre" id="nombre" placeholder="Tu nombre">
+                    </div>
+                    <div class="{{ clases.30 }}">
+                        <label class="{{clases.34}}"  for="fono">Teléfono</label>
+                        <input class="input-text" type="tel" name="fono" id="fono" placeholder="Tu teléfono">
+                    </div>
+                    <div class="{{ clases.30 }}">
+                        <label class="{{clases.34}}" for="email">Correo</label>
+                        <input class="input-text" type="email" name="email" id="email" placeholder="Tu Email">
+                    </div>
+                    <div class="{{ clases.30 }}">
+                        <label class="{{clases.34}}" for="contraseña">Contraseña</label>
+                        <input type="password" name="contraseña" id="contraseña" placeholder="Tu contraseña">
+                    </div>
+                </div>
+                <div class="{{ clases.30 }}">
+                    <input class="{{ clases.33 }} w-100" type="submit" value="Enviar" onclick="validarRut(); validarFormatoRut(); validar();">
+                </div>
+            </fieldset>
+            <footer>
+                <p>&copy; 2024 Tienda de Ropa</p>
+                <div class="{{ clases.1 }} {{ clases.2 }}"></div>
+            </footer>
+        </form>
+    </main>
+<script src="{% static 'js/Validaciones/validarRu.js' %}"></script>
+</body>
+</html>

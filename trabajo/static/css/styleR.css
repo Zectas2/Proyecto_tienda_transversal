@@ -1,0 +1,158 @@
+body {
+	background-image: linear-gradient(to right, #262a2b 0%, #8b9fa0  51%, #262a2b  100%);
+    font-family: Arial, sans-serif;
+}
+header {
+	background-color: rgba(11, 31, 57, .6);
+  color: #fff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+    margin: 0 20px;
+}
+
+header h1 a {
+    color: #ffffff; 
+    text-decoration: none; 
+}
+
+h1,h2,h3{
+	color: var(--secundario);
+}
+h1{
+	color: var(--principal);
+	font-size:4rem;
+}
+h2{
+	font-size: 3.2rem;
+}
+p{
+	font-size: 1.5rem;
+}
+
+h3{
+  color: #ffffff;
+}
+nav {
+    margin-top: 10px;
+      position: relative;
+      width: 470px;
+      height: 50px;
+      background-color: #0d0d0e;
+      border-radius: 8px;
+      font-size: 0;
+  }
+  
+  
+  nav a {
+      line-height: 50px;
+      height: 100%;
+      font-size: 20px;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      color: white;
+      cursor: pointer;
+      font-family: monospace;
+  }
+  nav a:hover{
+      transform: scale(1.1);
+  }
+  nav .animation {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      z-index: 0;
+      transition: all .5s ease 0s;
+      border-radius: 8px;
+  }
+  a:nth-child(1) {
+      width: 100px;
+  }
+  a:nth-child(2) {
+      width: 110px;
+  }
+  a:nth-child(3) {
+      width: 100px;
+  }
+  a:nth-child(4) {
+      width: 160px;
+  }
+  a:nth-child(5) {
+      width: 120px;
+  }
+  nav .start-home, a:nth-child(1):hover~.animation {
+      width: 100px;
+      left: 0;
+      background-color: rgb(104, 85, 224);
+  }
+  nav .start-about, a:nth-child(2):hover~.animation {
+      width: 110px;
+      left: 100px;
+      background-color: #14b6e7;
+  }
+  nav .start-blog, a:nth-child(3):hover~.animation {
+      width: 100px;
+      left: 210px;
+      background-color: #bc28e9;
+  }
+  nav .start-portefolio, a:nth-child(4):hover~.animation {
+      width: 160px;
+      left: 310px;
+      background-color: #d86e18;
+  }
+  nav .start-contact, a:nth-child(5):hover~.animation {
+      width: 120px;
+      left: 470px;
+      background-color: #4d494e;
+  }
+
+/* Globales */
+*::after,
+*::before,
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Lato";
+  color: #333;
+  min-height: 100vh;
+}
+
+.icon-cart:hover {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+.container-cart-icon {
+  position: relative;
+  text-align: center;
+  float: right;
+  margin-top: 15px;
+  margin-left: 1rem;
+}
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.navbar h1{
+  font-size: 5vw;
+}
+
+#contador-productos {
+  font-size: 12px;
+  position:absolute;
+}
