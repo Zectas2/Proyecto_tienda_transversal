@@ -5,32 +5,33 @@ from .models import Categoria,Producto
 def producto2View(request):
     context = {
         'clases': [
-            'navbar',
+            'navbar',#0
             'animation',
             'start-home',
             'container-cart-icon',
             'container-cart-products',
-            'hidden-cart',
+            'hidden-cart',#5
             'row-product',
             'cart-product',
             'info-cart-product',
             'cantidad-producto-carrito',
-            'titulo-producto-carrito',
+            'titulo-producto-carrito',#10
             'precio-producto-carrito',
             'cart-total',
             'total-pagar',
             'cart-empty',
-            'container-items',
+            'container-items',#15
             'item',
             'info-product',
             'valorObjeto',
             'simboloMoneda',
-            'price',
+            'price',#20
             'btn-add-cart',
             'coinversor',
             'coinversor-icon',
             'comvertirPrecio',
-            'hidden',
+            'hidden',#25
+            'contactanos',
         ]
     }
     return render(request, 'trabajo/producto2.html', context)
@@ -38,32 +39,33 @@ def producto2View(request):
 def producto3View(request):
     context = {
         'clases': [
-            'navbar',
+            'navbar',#0
             'animation',
             'start-home',
             'container-cart-icon',
             'container-cart-products',
-            'hidden-cart',
+            'hidden-cart',#5
             'row-product',
             'cart-product',
             'info-cart-product',
             'cantidad-producto-carrito',
-            'titulo-producto-carrito',
+            'titulo-producto-carrito',#10
             'precio-producto-carrito',
             'cart-total',
             'total-pagar',
             'cart-empty',
-            'container-items',
+            'container-items',#15
             'item',
             'info-product',
             'valorObjeto',
             'simboloMoneda',
-            'price',
+            'price',#20
             'btn-add-cart',
             'coinversor',
             'coinversor-icon',
             'comvertirPrecio',
-            'hidden',
+            'hidden',#25
+            'contactanos',
         ]
     }
     return render(request, 'trabajo/producto3.html', context)
@@ -71,32 +73,33 @@ def producto3View(request):
 def producto4View(request):
     context = {
         'clases': [
-            'navbar',
+            'navbar',#0
             'animation',
             'start-home',
             'container-cart-icon',
             'container-cart-products',
-            'hidden-cart',
+            'hidden-cart',#5
             'row-product',
             'cart-product',
             'info-cart-product',
             'cantidad-producto-carrito',
-            'titulo-producto-carrito',
+            'titulo-producto-carrito',#10
             'precio-producto-carrito',
             'cart-total',
             'total-pagar',
             'cart-empty',
-            'container-items',
+            'container-items',#15
             'item',
             'info-product',
             'valorObjeto',
             'simboloMoneda',
-            'price',
+            'price',#20
             'btn-add-cart',
             'coinversor',
             'coinversor-icon',
             'comvertirPrecio',
-            'hidden',
+            'hidden',#25
+            'contactanos',
         ]
     }
     return render(request, 'trabajo/producto4.html', context)
@@ -144,32 +147,33 @@ def registrarUsuarioView(request):
 def baseView(request):
     context = {
         'clases': [
-            'navbar',
+            'navbar',#0
             'animation',
             'start-home',
             'container-cart-icon',
             'container-cart-products',
-            'hidden-cart',
+            'hidden-cart',#5
             'row-product',
             'cart-product',
             'info-cart-product',
             'cantidad-producto-carrito',
-            'titulo-producto-carrito',
+            'titulo-producto-carrito',#10
             'precio-producto-carrito',
             'cart-total',
             'total-pagar',
             'cart-empty',
-            'container-items',
+            'container-items',#15
             'item',
             'info-product',
             'valorObjeto',
             'simboloMoneda',
-            'price',
+            'price',#20
             'btn-add-cart',
             'coinversor',
             'coinversor-icon',
             'comvertirPrecio',
-            'hidden',
+            'hidden',#25
+            'contactanos',
         ]
     }
     return render(request, 'trabajo/base.html', context)

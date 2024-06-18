@@ -47,14 +47,16 @@ h3{
 }
 
 footer {
-    position: static;
-    background-color: rgba(11, 31, 57, .6);
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    margin-top: 3rem;
-    color: #2b292c;
-
+  position: static;
+  background-color: rgba(11, 31, 57, .6);
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: 3rem;
+  color: #2b292c;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 footer a {
@@ -442,4 +444,14 @@ select#coinversorMenu {
   height: fit-content;
   text-align: center;
   padding: 1rem;
+}
+.contactanos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.contactanos span{
+  margin: 2px 0;
 }
