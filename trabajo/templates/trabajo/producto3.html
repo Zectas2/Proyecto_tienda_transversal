@@ -1,62 +1,37 @@
 {% extends 'base.html' %}
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block titulo %}Hombre{% endblock %}</title>
+    <title>{% block titulo %}Niños{% endblock %}</title>
   </head>
   <body>
     {% block content %}
-      <div class="{{ clases.15 }}">
-        <div class="{{ clases.16 }}">
-          <figure>
-            <img
-              src="https://st.mngbcn.com/rcs/pics/static/T6/fotos/S6/67090504_94.jpg?ts=1574681709606"
-              alt="producto"
-            />
-          </figure>
-          <div class="{{ clases.17 }}">
-            <h2>Abrigo Largo</h2>
-            <div class="{{ clases.18 }}">
-              <p class="{{ clases.19 }}">CLP</p>
-              <p class="{{ clases.20 }}">80</p>
+
+    {% if productos %}
+    
+      <div class="container-items">
+        {% for producto in productos %}
+            <div class="item">
+              <figure>
+                <img src="{{producto.imagen}}" alt="producto">
+              </figure>
+              <div class="info-product">
+                <h2>{{producto.nombre_producto}}</h2>
+                <div class="descripcion"></div>
+                <div class="valorObjeto">
+                  <p class="simboloMoneda">CLP</p>
+                  <p class="price">{{producto.precio}}</p>
+                </div>
+                <button class="btn-add-cart">Añadir al carrito</button>
+              </div>
             </div>
-            <button class="{{ clases.21 }}">Añadir al carrito</button>
-          </div>
-        </div>
-        <div class="{{ clases.16 }}">
-          <figure>
-            <img
-              src="https://ae01.alicdn.com/kf/HTB1LzgTai0TMKJjSZFNq6y_1FXaw/De-Vestir-Para-Suit-Homme-Classique-Pantalon-hombre-Office-Formal-Dress-men-Spring-Autumn-Slim-Fit.jpg"
-              alt="producto"
-            />
-          </figure>
-          <div class="{{ clases.17 }}">
-            <h2>Pantalon</h2>
-            <div class="{{ clases.18 }}">
-              <p class="{{ clases.19 }}">CLP</p>
-              <p class="{{ clases.20 }}">20</p>
-            </div>
-            <button class="{{ clases.21 }}">Añadir al carrito</button>
-          </div>
-        </div>
-        <div class="{{ clases.16 }}">
-          <figure>
-            <img
-              src="https://www.bolf.es/data/gfx/pictures/medium/4/3/37134_11.jpg"
-              alt="producto"
-            />
-          </figure>
-          <div class="{{ clases.17 }}">
-            <h2>Camisa</h2>
-            <div class="{{ clases.18 }}">
-              <p class="{{ clases.19 }}">CLP</p>
-              <p class="{{ clases.20 }}">140000</p>
-            </div>
-            <button class="{{ clases.21 }}">Añadir al carrito</button>
-          </div>
-        </div>
+          
+        {% endfor %}
       </div>
+    {% else %}
+      <p>No se encontraron productos.</p>
+    {% endif %}
+      
     {% endblock %}
   </body>
 </html>

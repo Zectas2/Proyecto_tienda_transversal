@@ -35,8 +35,8 @@ h1{
 	color: var(--principal);
 	font-size:4rem;
 }
-h2{
-	font-size: 3.2rem;
+h2 {
+  font-size: 3vw;
 }
 p{
 	font-size: 1.5rem;
@@ -345,14 +345,16 @@ img {
 .container-items {
   margin: 1rem 2vw;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .item {
   border-radius: 10px;
-  background: linear-gradient(to bottom, #262a2b, #717f80); 
+  background: linear-gradient(to bottom, #262a2b, #717f80);
   margin: 0.5rem;
+  max-width: 350px;
 }
 
 .item:hover {
@@ -384,6 +386,13 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.info-product h2{
+  display: flex;
+  flex-wrap: wrap;
+}
+.descripcion p {
+  font-size: 1.9vw;
 }
 
 .price {

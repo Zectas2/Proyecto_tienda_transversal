@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,56 +6,32 @@
   </head>
   <body>
     {% block content %}
-      <div class={{ clases.15 }}>
-        <div class={{ clases.16 }}>
-          <figure>
-            <img
-              src="https://img.elo7.com.br/product/main/41BF356/camisa-ben-10-desenho-animado-infantil-varias-cores-algodao-surf.jpg"
-              alt="producto"
-            />
-          </figure>
-          <div class={{ clases.17 }}>
-            <h2>Camiseta</h2>
-            <div class={{ clases.18 }}>
-              <p class={{ clases.19 }}>CLP</p>
-              <p class={{ clases.20 }}>80</p>
+
+    {% if productos %}
+    
+      <div class="container-items">
+        {% for producto in productos %}
+            <div class="item">
+              <figure>
+                <img src="{{producto.imagen}}" alt="producto">
+              </figure>
+              <div class="info-product">
+                <h2>{{producto.nombre_producto}}</h2>
+                <div class="descripcion"></div>
+                <div class="valorObjeto">
+                  <p class="simboloMoneda">CLP</p>
+                  <p class="price">{{producto.precio}}</p>
+                </div>
+                <button class="btn-add-cart">Añadir al carrito</button>
+              </div>
             </div>
-            <button class={{ clases.21 }}>Añadir al carrito</button>
-          </div>
-        </div>
-        <div class={{ clases.16 }}>
-          <figure>
-            <img
-              src="https://www.oclegends.org/wp-content/uploads/2021/12/chaquetas-y-abrigos-jack-jones-junior-con-capucha-para-nic3b1o-chaqueta-acolchada-azul-dark-navy.jpg"
-              alt="producto"
-            />
-          </figure>
-          <div class={{ clases.17 }}>
-            <h2>Chaqueta</h2>
-            <div class={{ clases.18 }}>
-              <p class={{ clases.19 }}>CLP</p>
-              <p class={{ clases.20 }}>20</p>
-            </div>
-            <button class={{ clases.21 }}>Añadir al carrito</button>
-          </div>
-        </div>
-        <div class={{ clases.16 }}>
-          <figure>
-            <img
-              src="https://www.stampalo.es/899295-thickbox_default/mercury-pantalon-de-chandal-nino-club.jpg"
-              alt="producto"
-            />
-          </figure>
-          <div class={{ clases.17 }}>
-            <h2>Pantalon</h2>
-            <div class={{ clases.18 }}>
-              <p class={{ clases.19 }}>CLP</p>
-              <p class={{ clases.20 }}>140000</p>
-            </div>
-            <button class={{ clases.21 }}>Añadir al carrito</button>
-          </div>
-        </div>
+          
+        {% endfor %}
       </div>
+    {% else %}
+      <p>No se encontraron productos.</p>
+    {% endif %}
+      
     {% endblock %}
   </body>
 </html>

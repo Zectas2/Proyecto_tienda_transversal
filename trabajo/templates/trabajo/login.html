@@ -3,27 +3,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block titulo %}Registro{% endblock %}</title>
+    <title>{% block titulo %}Login{% endblock %}</title>
   </head>
   <body>
         {% block content %}
             <main class="{{ clases.28 }}">
                 <form class="{{ clases.29 }}">
                     <fieldset>
-                        <h3>Registro de usuario</h3>
+                        <h3>Iniciar Sesion</h3>
                         <div class="{{ clases.30 }}">
-                            <div class="{{ clases.31 }}">
-                                <label class="{{clases.35}}" for="rut">Rut</label>
-                                <input type="text" name="rut" id="rut" placeholder="12345678-0">
-                            </div>
-                            <div class="{{ clases.31 }}">
-                                <label class="{{clases.35}}" for="nombre">Nombre</label>
-                                <input class="input-text" type="text" name="nombre" id="nombre" placeholder="Tu nombre">
-                            </div>
-                            <div class="{{ clases.31 }}">
-                                <label class="{{clases.35}}"  for="fono">Teléfono</label>
-                                <input class="input-text" type="tel" name="fono" id="fono" placeholder="Tu teléfono">
-                            </div>
                             <div class="{{ clases.31 }}">
                                 <label class="{{clases.35}}" for="email">Correo</label>
                                 <input class="input-text" type="email" name="email" id="email" placeholder="Tu Email">
@@ -34,7 +22,7 @@
                             </div>
                         </div>
                         <div class="{{ clases.31 }}">
-                            <input class="{{ clases.34 }} w-100" type="submit" value="Enviar" onclick="validarRut(); validarFormatoRut(); validar();">
+                            <input class="{{ clases.34 }} w-100" type="submit" value="Enviar" onclick="#">
                         </div>
                     </fieldset>
                 </form>

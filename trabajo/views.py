@@ -1,108 +1,73 @@
+from django.shortcuts import render,redirect
+from .models import *
+
 from django.shortcuts import render
-from .models import Categoria,Producto
+from .models import Producto, Categoria
+
+
+#carrito
+def carroView(request):
+    context = {}
+    return render(request,'trabajo/carro.html', context)
+
 #Vistas
 
-def producto2View(request):
+#Login
+def loginView(request):
     context = {
         'clases': [
-            'navbar',#0
+            'navbar',
             'animation',
             'start-home',
             'container-cart-icon',
             'container-cart-products',
-            'hidden-cart',#5
+            'hidden-cart',
             'row-product',
             'cart-product',
             'info-cart-product',
             'cantidad-producto-carrito',
-            'titulo-producto-carrito',#10
+            'titulo-producto-carrito',
             'precio-producto-carrito',
             'cart-total',
             'total-pagar',
             'cart-empty',
-            'container-items',#15
+            'container-items',
             'item',
             'info-product',
             'valorObjeto',
             'simboloMoneda',
-            'price',#20
+            'price',
             'btn-add-cart',
-            'coinversor',
+            'coinversor',#22
             'coinversor-icon',
             'comvertirPrecio',
             'hidden',#25
             'contactanos',
-        ]
-    }
-    return render(request, 'trabajo/producto2.html', context)
+            'contenerdorMain',
+            'formulario',
+            'contenedor-campos',
+            'campo',
+            'alinear-abajo',
+            'boton',
+            'labelForm',
+        ]}
+    return render(request,'trabajo/login.html', context)
+
+def producto2View(request):
+    categoria_deseada = Categoria.objects.get(id_categoria=2) 
+    productos = Producto.objects.filter(id_categoria=categoria_deseada)
+    return render(request, 'trabajo/producto2.html', {'productos': productos})
 
 def producto3View(request):
-    context = {
-        'clases': [
-            'navbar',#0
-            'animation',
-            'start-home',
-            'container-cart-icon',
-            'container-cart-products',
-            'hidden-cart',#5
-            'row-product',
-            'cart-product',
-            'info-cart-product',
-            'cantidad-producto-carrito',
-            'titulo-producto-carrito',#10
-            'precio-producto-carrito',
-            'cart-total',
-            'total-pagar',
-            'cart-empty',
-            'container-items',#15
-            'item',
-            'info-product',
-            'valorObjeto',
-            'simboloMoneda',
-            'price',#20
-            'btn-add-cart',
-            'coinversor',
-            'coinversor-icon',
-            'comvertirPrecio',
-            'hidden',#25
-            'contactanos',
-        ]
-    }
-    return render(request, 'trabajo/producto3.html', context)
+    categoria_deseada = Categoria.objects.get(id_categoria=1) 
+    productos = Producto.objects.filter(id_categoria=categoria_deseada)
+    return render(request, 'trabajo/producto3.html', {'productos': productos})
     
 def producto4View(request):
-    context = {
-        'clases': [
-            'navbar',#0
-            'animation',
-            'start-home',
-            'container-cart-icon',
-            'container-cart-products',
-            'hidden-cart',#5
-            'row-product',
-            'cart-product',
-            'info-cart-product',
-            'cantidad-producto-carrito',
-            'titulo-producto-carrito',#10
-            'precio-producto-carrito',
-            'cart-total',
-            'total-pagar',
-            'cart-empty',
-            'container-items',#15
-            'item',
-            'info-product',
-            'valorObjeto',
-            'simboloMoneda',
-            'price',#20
-            'btn-add-cart',
-            'coinversor',
-            'coinversor-icon',
-            'comvertirPrecio',
-            'hidden',#25
-            'contactanos',
-        ]
-    }
-    return render(request, 'trabajo/producto4.html', context)
+    categoria_deseada = Categoria.objects.get(id_categoria=3) 
+    productos = Producto.objects.filter(id_categoria=categoria_deseada)
+    return render(request, 'trabajo/producto3.html', {'productos': productos})
+
 def registrarUsuarioView(request):
     context = {
         'clases': [
@@ -131,7 +96,8 @@ def registrarUsuarioView(request):
             'coinversor',
             'coinversor-icon',
             'comvertirPrecio',
-            'hidden',
+            'hidden',#25
+            'contactanos',
             'contenerdorMain',
             'formulario',
             'contenedor-campos',
@@ -145,41 +111,5 @@ def registrarUsuarioView(request):
     return render(request, 'trabajo/registarUsuario.html', context)
 #base.html
 def baseView(request):
-    context = {
-        'clases': [
-            'navbar',#0
-            'animation',
-            'start-home',
-            'container-cart-icon',
-            'container-cart-products',
-            'hidden-cart',#5
-            'row-product',
-            'cart-product',
-            'info-cart-product',
-            'cantidad-producto-carrito',
-            'titulo-producto-carrito',#10
-            'precio-producto-carrito',
-            'cart-total',
-            'total-pagar',
-            'cart-empty',
-            'container-items',#15
-            'item',
-            'info-product',
-            'valorObjeto',
-            'simboloMoneda',
-            'price',#20
-            'btn-add-cart',
-            'coinversor',
-            'coinversor-icon',
-            'comvertirPrecio',
-            'hidden',#25
-            'contactanos',
-        ]
-    }
     return render(request, 'trabajo/base.html', context)
 
-#Consultasw de Datos
-def index(request):
-    productos = Producto.objects.all()
-    context={"productos":productos}
-    return render(request, 'productos/index.html', context)

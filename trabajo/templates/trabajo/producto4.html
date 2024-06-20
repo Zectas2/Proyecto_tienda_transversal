@@ -1,62 +1,37 @@
 {% extends 'base.html' %}
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block titulo %}Mujer{% endblock %}</title>
+    <title>{% block titulo %}Niños{% endblock %}</title>
   </head>
   <body>
     {% block content %}
-      <div class="{{ clases.15 }}">
-        <div class="{{ clases.16 }}">
-          <figure>
-            <img
-              src="https://www.passionanimaux.com/wp-content/uploads/2021/05/abrigo-de-pelo-sintc3a9tico-con-cuello-de-solapas-dusty-yellow-chaquetas-abrigos-esprit-mujer.jpg"
-              alt="producto"
-            />
-          </figure>
-          <div class="{{ clases.17 }}">
-            <h2>Abrigo Largo</h2>
-            <div class="{{ clases.18 }}">
-              <p class="{{ clases.19 }}">CLP</p>
-              <p class="{{ clases.20 }}">80</p>
+
+    {% if productos %}
+    
+      <div class="container-items">
+        {% for producto in productos %}
+            <div class="item">
+              <figure>
+                <img src="{{producto.imagen}}" alt="producto">
+              </figure>
+              <div class="info-product">
+                <h2>{{producto.nombre_producto}}</h2>
+                <div class="descripcion"></div>
+                <div class="valorObjeto">
+                  <p class="simboloMoneda">CLP</p>
+                  <p class="price">{{producto.precio}}</p>
+                </div>
+                <button class="btn-add-cart">Añadir al carrito</button>
+              </div>
             </div>
-            <button class="{{ clases.21 }}">Añadir al carrito</button>
-          </div>
-        </div>
-        <div class="{{ clases.16 }}">
-          <figure>
-            <img
-              src="https://images-na.ssl-images-amazon.com/images/I/71SXa0mUbYL._AC_UL1464_.jpg"
-              alt="producto"
-            />
-          </figure>
-          <div class="{{ clases.17 }}">
-            <h2>Pantalon</h2>
-            <div class="{{ clases.18 }}">
-              <p class="{{ clases.19 }}">CLP</p>
-              <p class="{{ clases.20 }}">20</p>
-            </div>
-            <button class="{{ clases.21 }}">Añadir al carrito</button>
-          </div>
-        </div>
-        <div class="{{ clases.16 }}">
-          <figure>
-            <img
-              src="https://xuss.vteximg.com.br/arquivos/ids/171189-1000-1500/jeans-mujer-xuss-je-0031-azul-oscuro-2.jpg?v=638006033649730000"
-              alt="producto"
-            />
-          </figure>
-          <div class="{{ clases.17 }}">
-            <h2>Pantalon</h2>
-            <div class="{{ clases.18 }}">
-              <p class="{{ clases.19 }}">CLP</p>
-              <p class="{{ clases.20 }}">140000</p>
-            </div>
-            <button class="{{ clases.21 }}">Añadir al carrito</button>
-          </div>
-        </div>
+          
+        {% endfor %}
       </div>
+    {% else %}
+      <p>No se encontraron productos.</p>
+    {% endif %}
+      
     {% endblock %}
   </body>
 </html>
