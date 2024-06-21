@@ -1,4 +1,4 @@
-function validar(){
+function validarRegistro(){
     /*Llamamos los datos de campos*/
     let nombreInput = document.querySelector('input[name=nombre]');
     let fonoInput = document.querySelector('input[name=fono]');
@@ -6,13 +6,11 @@ function validar(){
     let contraseñaInput = document.querySelector('input[name=contraseña]');
     /*Definimos datros ingresados como variables*/ 
     let nombreIngresado = nombreInput.value;
-    let apellidoPatIngresado = apPaternoInput.value;
     let fonoIngresado = fonoInput.value;
     let emailIngresado = emailInput.value;
     let contraseñaIngresada = contraseñaInput.value;
     /*Se definen expresiones regulares*/ 
-    let regexNombre = /^[a-zA-Z]{3,11}$/
-    let regexApellidos = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ]{3,15}$/
+    let regexNombre = /^[a-zA-Z0-9]{3,11}$/
     let regexFono = /^\+\d{10,15}$/
     let regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     let regexContraseña = /^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{5,11}$/
@@ -44,49 +42,4 @@ function validar(){
             
     }
     
-}
-function validarRut() {
-    let rutInput = document.querySelector('input[name=rut]');
-    let valorInput = rutInput.value;
-    
-    // Si el RUT termina en k, lo convierte a mayúscula.
-    valorInput = valorInput.toUpperCase();
-
-    // Divide el RUT en números y dígito verificador.
-    let [rutNumeros, rutDigito] = valorInput.split("-");
-    rutDigito = rutDigito.replace('.', ''); // Elimina el punto si está presente.
-
-    let numerosAlReves = rutNumeros.split('').reverse().join('');
-    let multiplosSerie = 2;
-    let resultadoSuma = 0;
-
-    for (var i = 0; i < numerosAlReves.length; i++) {
-        resultadoSuma = resultadoSuma + (multiplosSerie * parseInt(numerosAlReves[i]));
-        multiplosSerie++;
-        if (multiplosSerie == 8) multiplosSerie = 2;
-    }
-
-    let parteEntera = parseInt(resultadoSuma / 11);
-    let digitoV = 11 - (resultadoSuma - (parteEntera * 11));
-
-    // Si el dígito verificador es 10, se representa como 'k'.
-    if (digitoV === 10) {
-        digitoV = 'K';
-    }
-    if (digitoV !== rutDigito) {
-        alert("Ingrese un RUT válido");
-        return true;
-    } else {
-        return false;
-    }
-}
-function validarFormatoRut(){
-    let rutInput= document.querySelector('input[name="rut"]')
-    if(rutInput.value.match(/[0/9kK]/)){
-        return true
-    }
-    else{
-        rutInput.value=("");
-        return false;
-    }
 }

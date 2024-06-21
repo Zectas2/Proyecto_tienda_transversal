@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block titulo %}Niños{% endblock %}</title>
+    <title>{% block titulo %}Hombre{% endblock %}</title>
   </head>
   <body>
     {% block content %}
@@ -16,8 +16,10 @@
                 <img src="{{producto.imagen}}" alt="producto">
               </figure>
               <div class="info-product">
+                <span class="idProducto hidden">{{producto.id_producto}}</span>
                 <h2>{{producto.nombre_producto}}</h2>
-                <div class="descripcion"></div>
+                <div class="descripcion">
+                  <span>{{producto.desc_producto}}</span></div>
                 <div class="valorObjeto">
                   <p class="simboloMoneda">CLP</p>
                   <p class="price">{{producto.precio}}</p>

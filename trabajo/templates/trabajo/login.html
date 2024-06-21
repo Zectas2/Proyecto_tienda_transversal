@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,26 +8,13 @@
   </head>
   <body>
         {% block content %}
-            <main class="{{ clases.28 }}">
-                <form class="{{ clases.29 }}">
-                    <fieldset>
-                        <h3>Iniciar Sesion</h3>
-                        <div class="{{ clases.30 }}">
-                            <div class="{{ clases.31 }}">
-                                <label class="{{clases.35}}" for="email">Correo</label>
-                                <input class="input-text" type="email" name="email" id="email" placeholder="Tu Email">
-                            </div>
-                            <div class="{{ clases.31 }}">
-                                <label class="{{clases.35}}" for="contraseña">Contraseña</label>
-                                <input type="password" name="contraseña" id="contraseña" placeholder="Tu contraseña">
-                            </div>
-                        </div>
-                        <div class="{{ clases.31 }}">
-                            <input class="{{ clases.34 }} w-100" type="submit" value="Enviar" onclick="#">
-                        </div>
-                    </fieldset>
-                </form>
-            </main>
+        <section class="loginSection">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form | crispy}}
+                <input class="boton w-100" type="submit" value="Enviar" onclick="">
+            </form>
+        </section>
         {% endblock %}
     </body>
 </html>

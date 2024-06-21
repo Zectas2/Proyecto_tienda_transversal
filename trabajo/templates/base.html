@@ -22,7 +22,6 @@
                   <a href="{% url 'producto4' %}">Mujer</a>
                   <a href="{% url 'login' %}">Login</a>
                   <a href="{% url 'registro' %}">Registro</a>
-                  <a href="comentarios.html">Comentarios</a>
                   <div class="animation start-home"></div>
               </ul>
             </nav>
@@ -45,6 +44,18 @@
                       <span class="total-pagar">span</span>
                     </div>
                     <p class="cart-empty">El carrito está vacío</p>
+              </div>
+              <div class="userDatos">
+                {% if user.is_authenticated %}
+                      {{user.username}}
+                      {% csrf_token %}
+                      <a href="{% url 'logout' %}">Cerrar Sesion</a>
+
+                {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'registro' %}">Registro</a>
+
+                {% endif %}
               </div>
         </div>
        
@@ -79,7 +90,6 @@
     <script src="{% static 'js/Carrito/index.js' %}"></script>
     <script src="{% static 'js/APIs/conversorMonedas.js' %}"></script>
     <script src="{% static 'js/Validaciones/validarRu.js' %}"></script>
-    <script src="{% static 'js/APIs/descripcion.js' %}"></script>
     
 </body>
 </html>
