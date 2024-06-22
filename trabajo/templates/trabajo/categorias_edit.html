@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Categorias Edit{% endblock %}
+
+{% block content %}
+    <div class="productosAddMain">
+        {% if categoria %}
+            <h2>Formulario Actualizar Categoria</h2>
+            <br>
+            <div id="idMensajes">
+                {% if mensaje %}
+                    {{ mensaje }}
+                {% endif %}
+            </div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_table }}
+                <input type="submit" name="opcion" value="Actualizar">
+                <a href="{% url 'crud_categorias' %}">Volver</a>
+            </form>
+            
+        {% endif %}
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#idMensajes").delay(2000).fadeOut("slow");
+            })
+        </script>
+{% endblock %}

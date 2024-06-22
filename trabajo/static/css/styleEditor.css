@@ -1,0 +1,67 @@
+/*Centramos el titulo*/
+.todo h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Movemos el boton*/
+.botonAgregarContainer{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.botonAgregar{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+/* Estilos para la tabla */
+.editorTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+/* Estilos para las celdas de encabezado */
+.editorTable th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    color: #000;
+}
+
+/* Estilos para las celdas de datos */
+.editorTable td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    color: #000;
+}
+
+/* Estilo para la primera columna (Id Producto) */
+.editorTable .columna {
+    width: 10%;
+}
+
+/* Estilos para los enlaces (Eliminar y Modificar) */
+.editorTable a {
+    text-decoration: none;
+    color: #007bff;
+}
+.editorTable a:hover {
+    text-decoration: underline;
+}
+
+/* Media query para hacer la tabla responsive */
+@media (max-width: 768px) {
+    .editorTable th:nth-child(5),
+    .editorTable td:nth-child(5) {
+        display: none; 
+    }
+}

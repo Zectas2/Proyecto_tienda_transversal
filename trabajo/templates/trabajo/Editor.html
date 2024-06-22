@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block titulo %}Editor{% endblock %}</title>
+  </head>
+  <body>
+    {% block content %}
+    <div class="todo">
+        <h1>Editor datos Productos</h1>
+        <div class="botonAgregarContainer">
+            <button class="botonAgregar" type="button">
+                <a href="{% url 'productosAdd' %}">Agregar</a>
+            </button>
+        </div>
+        <div class="botonAgregarContainer">
+            <button class="botonAgregar" type="button">
+                <a href="{% url 'crud_categorias' %}">Categorias</a>
+            </button>
+        </div>
+
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{mesnsaje}}
+            {% endif %}
+        </div>
+
+        <table class="editorTable">
+            {% if productos %}
+                <th class="columna">Id Producto</th>
+                <th>Nombre Producto</th>
+                <th>Precio</th>
+                <th>Desc Producto</th>
+                <th>Imagen</th>
+                <th>Categoria</th>
+                <th>Eliminar</th>
+                <th>Modificar</th>
+                {% for producto in productos %}
+                    <tr>
+                        <td>{{producto.id_producto}}</td>
+                        <td>{{producto.nombre_producto}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.desc_producto}}</td>
+                        <td>{{producto.imagen}}</td>
+                        <td>{{producto.id_categoria}}</td>
+                        <td><a href="{% url 'productos_del' pk=producto.id_producto %}">Eliminar</a></td>
+                        <td><a href="{% url 'productos_findEdit' pk=producto.id_producto %}">Modificar</a></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#idMensajes").delay(2000).fadeOut("slow");
+            })
+        </script>
+    </div>
+    {% endblock %}
+  </body>
+</html>

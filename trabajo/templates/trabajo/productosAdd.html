@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Productos Add
+{% endblock %}
+
+{% block content %}
+<div class="productosAddMain">
+    <h2>Formulario CRUD para Productos</h2>
+    <br>
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{ mensaje }}
+        {% endif %}
+    </div>
+    <form action="{% url 'productosAdd' %}" method="post">
+        {% csrf_token %}
+        <pre>id_producto: <input type="number" name="id_producto"></pre>
+        <pre>Nombre Producto: <input type="text" name="nombre_producto"> </pre>
+        <pre>Precio: <input type="number" name="precio"></pre>
+        <pre>Desc Producto: <input type="text" name="desc_producto"> </pre>
+        <pre>Imagen: <input type="text" name="imagen"> </pre>
+        <pre>Categoria: <select name="id_categoria">
+            {% for categoria in categorias %}
+                <option value="{{ categoria.id_categoria }}">{{ categoria.id_categoria }} - {{ categoria.categoria }}</option>
+            {% endfor %}
+        </select></pre>
+        <input type="submit" name="opcion" value="Agregar">
+        <a href="{% url 'editor' %}">Volver</a>
+    </form>
+</div>
+{% endblock %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#idMensajes").delay(2000).fadeOut("slow");
+    });
+</script>

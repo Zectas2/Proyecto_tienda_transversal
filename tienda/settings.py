@@ -128,6 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "producto2"
 
-LOGIN_URL = 'producto2'
+
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"

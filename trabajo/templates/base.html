@@ -9,6 +9,7 @@
     <title>{% block titulo %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/stylec.css' %}">
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleEditor.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
   </head>
   <body>
@@ -48,6 +49,11 @@
               <div class="userDatos">
                 {% if user.is_authenticated %}
                       {{user.username}}
+                      <div class="editor" data-editor-url="{% url 'editor' %}">
+                      </div>
+                      <div class="userStaff hidden">
+                      {{user.is_staff}}
+                      </div>
                       {% csrf_token %}
                       <a href="{% url 'logout' %}">Cerrar Sesion</a>
 
@@ -90,6 +96,7 @@
     <script src="{% static 'js/Carrito/index.js' %}"></script>
     <script src="{% static 'js/APIs/conversorMonedas.js' %}"></script>
     <script src="{% static 'js/Validaciones/validarRu.js' %}"></script>
+    <script src="{% static 'js/Validaciones/validarAdmin.js' %}"></script>
     
 </body>
 </html>

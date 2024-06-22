@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 # Creamos la clase Categoria
 class Categoria(models.Model):
-    id_categoria = models.AutoField(db_column='idCategoria', primary_key=True)
+    id_categoria = models.CharField(max_length=4,db_column='idCategoria',primary_key=True)
     categoria = models.CharField(max_length=20, blank=False, null=False)
     
     def __str__(self):
@@ -11,7 +11,7 @@ class Categoria(models.Model):
 
 # Cresmos la Clase Producto
 class Producto(models.Model):
-    id_producto = models.BigAutoField(primary_key=True)
+    id_producto = models.CharField(max_length=4,primary_key=True)
     nombre_producto = models.CharField(max_length=50)
     precio = models.IntegerField()
     desc_producto = models.CharField(max_length=20)

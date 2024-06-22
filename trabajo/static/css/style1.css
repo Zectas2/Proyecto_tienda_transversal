@@ -476,3 +476,13 @@ select#coinversorMenu {
 	cursor: pointer;
   font-family: monospace;
 }
+/*productosAdd*/
+.productosAddMain{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.productosAddMain h2{
+  margin-top: 2rem;
+}
