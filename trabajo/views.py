@@ -2,11 +2,15 @@ from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
 from django.contrib.auth.views import logout_then_login
+from django.contrib.auth import logout
 
 
 #logout
-def logout(request):
-    return logout_then_login(request,login_url='login')
+
+def logout_view(request):
+    logout(request)
+    print("Cerrando Sesion...")
+    return redirect('producto2')
 #carrito
 def carroView(request):
     return render(request,'trabajo/carro.html')
@@ -199,6 +203,6 @@ def producto4View(request):
 def registrarUsuarioView(request):
     return render(request, 'trabajo/registarUsuario.html')
 #base.html
+
 def baseView(request):
     return render(request, 'trabajo/base.html')
-
