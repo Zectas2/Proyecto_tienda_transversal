@@ -1,12 +1,8 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>{% block titulo %}Mujer{% endblock %}</title>
-  </head>
-  <body>
-    {% block content %}
+{% block titulo %}Mujer{% endblock %}
 
+    {% block content %}
+    
     {% if productos %}
     
       <div class="container-items">
@@ -35,5 +31,3 @@
     {% endif %}
       
     {% endblock %}
-  </body>
-</html>

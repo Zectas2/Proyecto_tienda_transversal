@@ -5,14 +5,69 @@ from django.contrib.auth import logout
 
 
 #carrito
-def addtocar(request, id_producto):
+def comprar(request):
+    if not request.user.is_authenticated:
+        return redirect(to="login")
     carro = request.session.get("carro", [])
-    carro.append(id_producto)
+    total = 0
+    for item in carro:
+        total += item[5]
+    venta = Venta()
+    venta.cliente = request.user
+    venta.total = total
+    venta.save()
+    for item in carro:
+        detalle = DetalleVenta()
+        detalle.producto = Producto.objects.get(id_producto = item[0])
+        detalle.precio = item [3]
+        detalle.cantidad = item[4]
+        detalle.venta = venta
+        detalle.save()
+        request.session["carro"] = []
+    return redirect(to="carro")
+        
+def addtocar(request, id_producto):
+    producto = Producto.objects.get(id_producto=id_producto)
+    carro = request.session.get("carro", [])
+    for item in carro:
+        if item[0] == id_producto:
+            item[4] += 1
+            item[5] = item[3] * item[4]
+            break
+    else:
+         carro.append([id_producto, producto.nombre_producto, producto.imagen,  producto.precio, 1, producto.precio ])
     request.session["carro"] = carro
-    return redirect(to="trabajo/producto2.html")
+    return redirect(to="producto2")
+
+def dropItem(request, id_producto):
+    carro = request.session.get("carro", [])
+    for item in carro:
+        if item[0] == id_producto:
+            if item[4] > 1:
+                item[4] -= 1
+                item[5] = item[3] * item[4]
+                break
+            else:
+                carro.remove(item)
+    request.session["carro"] = carro
+    return redirect(to="carro")
+
+#para limpiar la lista
+def limpiar(request, id_producto=None):
+    if id_producto:
+        carro = request.session.get("carro", [])
+
+        for item in carro[:]: 
+            if item[0] == id_producto:
+                carro.remove(item)
+
+        request.session["carro"] = carro
+    else:
+        request.session["carro"] = []
+    return redirect(to="carro")
 
 def carroView(request):
-    return render(request,'trabajo/carro.html')
+    return render(request,'trabajo/carro.html', {"carro": request.session.get("carro", [])})
 
 #Registro
 def registro(request):
@@ -205,17 +260,17 @@ def categorias_edit(request, pk):
 def producto2View(request):
     categoria_deseada = Categoria.objects.get(id_categoria=2) 
     productos = Producto.objects.filter(id_categoria=categoria_deseada)
-    return render(request, 'trabajo/producto2.html', {'productos': productos, "carro" : request.session.get("carro", [])})
+    return render(request, 'trabajo/producto2.html', {'productos': productos, "carro":request.session.get("carro", [])})
 
 def producto3View(request):
     categoria_deseada = Categoria.objects.get(id_categoria=1) 
     productos = Producto.objects.filter(id_categoria=categoria_deseada)
-    return render(request, 'trabajo/producto3.html', {'productos': productos, "carro" : request.session.get("carro", [])})
+    return render(request, 'trabajo/producto3.html', {'productos': productos, "carro":request.session.get("carro", [])})
     
 def producto4View(request):
     categoria_deseada = Categoria.objects.get(id_categoria=3) 
     productos = Producto.objects.filter(id_categoria=categoria_deseada)
-    return render(request, 'trabajo/producto4.html', {'productos': productos, "carro" : request.session.get("carro", [])})
+    return render(request, 'trabajo/producto4.html', {'productos': productos, "carro":request.session.get("carro", [])})
 #base.html
 
 def baseView(request):

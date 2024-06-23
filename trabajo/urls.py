@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from .views import *
 from django.contrib.auth.views import LoginView
 
@@ -6,7 +6,6 @@ urlpatterns = [
     path('', producto2View, name='producto2'),
     path('producto3/', producto3View, name='producto3'),
     path('producto4/', producto4View, name='producto4'),
-    path('carro/', carroView, name='carro'),
     # Crud Productos
     path('editor/', editor, name='editor'),
     path('productosAdd/', productosAdd, name='productosAdd'),
@@ -24,6 +23,10 @@ urlpatterns = [
     # Registro de Usuario
     path('registro/', registro, name='registro'),
     # Carrito
+    path('carro/', carroView, name='carro'),
     path('addtocar/<id_producto>', addtocar, name='addtocar'),
+    path('dropItem/<id_producto>', dropItem, name='dropItem'),
+    path('limpiar', limpiar, name='limpiar'),
+    path('comprar', comprar, name='comprar'),
     
 ]

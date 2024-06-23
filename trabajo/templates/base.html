@@ -18,34 +18,19 @@
           <h1><a href="{% url 'producto2' %}">Tienda Ropa</a></h1>
             <nav>
               <ul>
-                  <a href="{% url 'producto2' %}">Niños</a>
-                  <a href="{% url 'producto3' %}">Hombre</a>
-                  <a href="{% url 'producto4' %}">Mujer</a>
-                  <a href="{% url 'login' %}">Login</a>
-                  <a href="{% url 'registro' %}">Registro</a>
+                  <a class="navbarlink" href="{% url 'producto2' %}">Niños</a>
+                  <a class="navbarlink" href="{% url 'producto3' %}">Hombre</a>
+                  <a class="navbarlink" href="{% url 'producto4' %}">Mujer</a>
+                  <a class="navbarlink" href="{% url 'login' %}">Login</a>
+                  <a class="navbarlink" href="{% url 'registro' %}">Registro</a>
                   <div class="animation start-home"></div>
               </ul>
             </nav>
               <div class="container-cart-icon" src="{% static 'images/cart.png' %}" >
-                    <img src="{% static 'images/cart.png' %}" alt="Carrito de compras" />
-                    <span id="contador-productos">0</span>
+                <a href="{% url 'carro' %}"><img src="{% static 'images/cart.png' %}" alt="Carrito de compras" /></a>
+                    
               </div>
-              <div class="container-cart-products hidden-cart">
-                    <div class="row-product hidden">
-                      <div class="cart-product">
-                        <div class="info-cart-product">
-                          <span class="cantidad-producto-carrito">0</span>
-                          <p class="titulo-producto-carrito">Empty</p>
-                          <span class="precio-producto-carrito">$0</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="cart-total hidden">
-                      <h3>Total:</h3>
-                      <span class="total-pagar">span</span>
-                    </div>
-                    <p class="cart-empty">El carrito está vacío</p>
-              </div>
+              
               <div class="userDatos">
                 {% if user.is_authenticated %}
                       {{user.username}}
@@ -93,7 +78,6 @@
           <span>calle: Serrano 607, Melipilla</span>
         </div>
     </footer>
-    <script src="{% static 'js/Carrito/index.js' %}"></script>
     <script src="{% static 'js/APIs/conversorMonedas.js' %}"></script>
     <script src="{% static 'js/Validaciones/validarAdmin.js' %}"></script>
     
