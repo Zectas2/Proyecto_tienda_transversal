@@ -22,5 +22,8 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('login/', LoginView.as_view(template_name='trabajo/login.html'), name='login'),
     # Registro de Usuario
-    path('registrarUsuario/', registrarUsuarioView, name='registro'),
+    path('registro/', registro, name='registro'),
+    # Carrito
+    path('addtocar/<id_producto>', addtocar, name='addtocar'),
+    
 ]

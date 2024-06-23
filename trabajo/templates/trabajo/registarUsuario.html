@@ -1,40 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>{% block titulo %}Registro{% endblock %}</title>
-  </head>
-  <body>
-        {% block content %}
-            <main class="contenerdorMain">
-                <form class="formulario">
-                    <fieldset>
-                        <h3>Registro de usuario</h3>
-                        <div class="contenedor-campos">
-                            <div class="campo alinear-abajo">
-                                <label class="labelForm" for="nombre">Nombre de usuario</label>
-                                <input class="input-text" type="text" name="nombre" id="nombre" placeholder="Tu nombre de usuario">
-                            </div>
-                            <div class="campo alinear-abajo">
-                                <label class="labelForm"  for="fono">Teléfono</label>
-                                <input class="input-text" type="tel" name="fono" id="fono" placeholder="Tu teléfono">
-                            </div>
-                            <div class="campo alinear-abajo">
-                                <label class="labelForm" for="email">Correo</label>
-                                <input class="input-text" type="email" name="email" id="email" placeholder="Tu Email">
-                            </div>
-                            <div class="campo alinear-abajo">
-                                <label class="labelForm" for="contraseña">Contraseña</label>
-                                <input type="password" name="contraseña" id="contraseña" placeholder="Tu contraseña">
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <input class="boton w-100" type="submit" value="Enviar" onclick="validarRegistro();">
-                        </div>
-                    </fieldset>
-                </form>
-            </main>
-        {% endblock %}
-    </body>
-</html>
+{% load crispy_forms_tags %}
+
+{% block titulo %}Registro de usuario{% endblock %}
+
+{% block content %}
+<section class="loginSection">
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.username|as_crispy_field }}
+    {{ form.first_name|as_crispy_field }}
+    {{ form.last_name|as_crispy_field }}
+    {{ form.email|as_crispy_field }}
+    {{ form.password1|as_crispy_field }}
+    {{ form.password2|as_crispy_field }}
+    <div class="campo">
+      <input class="boton w-100" type="submit" value="Registrarse">
+    </div>
+  </form>
+</section>
+{% endblock %}

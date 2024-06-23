@@ -1,19 +1,36 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
-from django.contrib.auth.views import logout_then_login
 from django.contrib.auth import logout
 
 
+#carrito
+def addtocar(request, id_producto):
+    carro = request.session.get("carro", [])
+    carro.append(id_producto)
+    request.session["carro"] = carro
+    return redirect(to="trabajo/producto2.html")
+
+def carroView(request):
+    return render(request,'trabajo/carro.html')
+
+#Registro
+def registro(request):
+    if request.method == "POST":
+        registro = RegistroForm(request.POST)
+        if registro.is_valid():
+            registro.save()
+            print("Registro exitoso...")
+            return redirect(to="login")
+    else:
+        registro = RegistroForm()
+    return render(request,'trabajo/registarUsuario.html',{'form': registro})
 #logout
 
 def logout_view(request):
     logout(request)
     print("Cerrando Sesion...")
     return redirect('producto2')
-#carrito
-def carroView(request):
-    return render(request,'trabajo/carro.html')
 
 #Editor CRUD
 #Productos
@@ -188,20 +205,17 @@ def categorias_edit(request, pk):
 def producto2View(request):
     categoria_deseada = Categoria.objects.get(id_categoria=2) 
     productos = Producto.objects.filter(id_categoria=categoria_deseada)
-    return render(request, 'trabajo/producto2.html', {'productos': productos})
+    return render(request, 'trabajo/producto2.html', {'productos': productos, "carro" : request.session.get("carro", [])})
 
 def producto3View(request):
     categoria_deseada = Categoria.objects.get(id_categoria=1) 
     productos = Producto.objects.filter(id_categoria=categoria_deseada)
-    return render(request, 'trabajo/producto3.html', {'productos': productos})
+    return render(request, 'trabajo/producto3.html', {'productos': productos, "carro" : request.session.get("carro", [])})
     
 def producto4View(request):
     categoria_deseada = Categoria.objects.get(id_categoria=3) 
     productos = Producto.objects.filter(id_categoria=categoria_deseada)
-    return render(request, 'trabajo/producto4.html', {'productos': productos})
-
-def registrarUsuarioView(request):
-    return render(request, 'trabajo/registarUsuario.html')
+    return render(request, 'trabajo/producto4.html', {'productos': productos, "carro" : request.session.get("carro", [])})
 #base.html
 
 def baseView(request):

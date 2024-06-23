@@ -24,7 +24,7 @@
                   <p class="simboloMoneda">CLP</p>
                   <p class="price">{{producto.precio}}</p>
                 </div>
-                <button class="btn-add-cart">Añadir al carrito</button>
+                <button class="btn-add-cart"><a href="{% url 'addtocar' producto.id_producto %}"> Agregar al carrito</a></button>
               </div>
             </div>
           
