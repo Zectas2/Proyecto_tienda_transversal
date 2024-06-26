@@ -19,13 +19,12 @@
                 <span class="idProducto hidden">{{producto.id_producto}}</span>
                 <h2>{{producto.nombre_producto}}</h2>
                 <div class="descripcion">
-                  <span>{{producto.desc_producto}}</span>
-                </div>
+                  <span>{{producto.desc_producto}}</span></div>
                 <div class="valorObjeto">
                   <p class="simboloMoneda">CLP</p>
                   <p class="price">{{producto.precio}}</p>
                 </div>
-                <button class="btn-add-cart "><a href="{% url 'addtocar' producto.id_producto %}"> Agregar al carrito</a></button>
+                <button class="btn-add-cart"><a href="{% url 'addtocar' producto.id_producto %}"> Agregar al carrito</a></button>
               </div>
             </div>
           
@@ -34,6 +33,7 @@
     {% else %}
       <p>No se encontraron productos.</p>
     {% endif %}
+      
     {% endblock %}
   </body>
 </html>

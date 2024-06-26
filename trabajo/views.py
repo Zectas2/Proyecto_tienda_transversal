@@ -37,7 +37,7 @@ def addtocar(request, id_producto):
     else:
          carro.append([id_producto, producto.nombre_producto, producto.imagen,  producto.precio, 1, producto.precio ])
     request.session["carro"] = carro
-    return redirect(to="producto2")
+    return redirect(to="carro")
 
 def dropItem(request, id_producto):
     carro = request.session.get("carro", [])

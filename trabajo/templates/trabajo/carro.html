@@ -2,7 +2,12 @@
 
 {% block titulo %}Carrito{% endblock %}
 {% block content %}
-<h1>Carrito de compras</h1>
+<div class="carroTitulo">
+  <h1>Carrito de compras</h1>
+  <div>
+    <button type="button"><a href="{% url 'producto2' %}"> Volver</a></button>
+  </div>
+</div>
   <div class="container-items">
         
     <table class="editorTable">

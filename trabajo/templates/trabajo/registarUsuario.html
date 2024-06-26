@@ -5,8 +5,11 @@
 {% block titulo %}Registro de usuario{% endblock %}
 
 {% block content %}
+<div class="modalInfo" id="modalInfo">
+  
+</div>
 <section class="loginSection">
-  <form action="" method="post">
+  <form id="registrationForm" action="{% url 'registro' %}" method="post">
     {% csrf_token %}
     {{ form.username|as_crispy_field }}
     {{ form.first_name|as_crispy_field }}
@@ -15,8 +18,28 @@
     {{ form.password1|as_crispy_field }}
     {{ form.password2|as_crispy_field }}
     <div class="campo">
-      <input class="boton w-100" type="submit" value="Registrarse">
+      <button id="botonRegistro" class="boton w-100" type="button">Registrarse</button>
     </div>
   </form>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Registrar usuario?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Seguro que deseas Registrar este usuario?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="modalCloseButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button id="modalAcceptButton" type="button" class="btn btn-primary">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
